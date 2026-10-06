@@ -1,12 +1,21 @@
 # Diplomacy
 
-CACD practice app built on [V-engine](https://github.com/hyle4/V-engine). Python 3.12 and [uv](https://docs.astral.sh/uv/) are required.
+CACD practice app built on [V-engine](https://github.com/hyle4/V-engine). Git is required. The installer downloads uv and Python 3.12 when they are missing.
+
+macOS or Linux:
 
 ```bash
 git clone https://github.com/hyle4/Diplomacy
 cd Diplomacy
-uv sync
-uv run python app.py
+./install.sh
+```
+
+Windows:
+
+```powershell
+git clone https://github.com/hyle4/Diplomacy
+cd Diplomacy
+powershell -ExecutionPolicy Bypass -File .\install.ps1
 ```
 
 Open `http://127.0.0.1:8765`.
