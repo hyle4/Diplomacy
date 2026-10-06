@@ -8,6 +8,6 @@ practice_mode = "all"
 locale = "pt-BR"
 show_project = false
 font = ""
-text_size = "md"
+text_size = "sm"
 reading_width = "standard"
 library_filters = ["Objetiva", "Manhã", "Tarde"]

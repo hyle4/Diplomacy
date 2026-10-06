@@ -4,7 +4,8 @@
 
 set -euo pipefail
 
-ROOT="$(cd "$(dirname "$0")" && pwd)"
+SOURCE="$(readlink -f "${BASH_SOURCE[0]}")"
+ROOT="$(cd "$(dirname "$SOURCE")" && pwd)"
 PORT=8765
 URL="http://127.0.0.1:${PORT}/"
 DESKTOP_NAME="Diplomacy.desktop"
