@@ -1,0 +1,12 @@
+[Desktop Entry]
+Version=1.0
+Type=Application
+Name=Diplomacy
+Comment=CACD practice
+Exec=diplomacy
+TryExec=diplomacy
+Icon=diplomacy
+Terminal=false
+StartupNotify=true
+Categories=Education;
+Keywords=Study;Exam;CACD;Diplomacy;

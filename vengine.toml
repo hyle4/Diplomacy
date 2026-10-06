@@ -1,0 +1,13 @@
+schema_version = 1
+name = "Diplomacy"
+subject = "CACD · Diplomacia"
+ai_provider = "none"
+ai_count = 8
+proposer = "builtin"
+practice_mode = "all"
+locale = "pt-BR"
+show_project = false
+font = ""
+text_size = "md"
+reading_width = "standard"
+library_filters = ["Objetiva", "Manhã", "Tarde"]

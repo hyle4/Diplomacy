@@ -1,0 +1,86 @@
+#!/bin/bash
+# Open Diplomacy in a window with no browser chrome.
+# Starts the local server only when nothing is already listening.
+
+set -euo pipefail
+
+ROOT="$(cd "$(dirname "$0")" && pwd)"
+PORT=8765
+URL="http://127.0.0.1:${PORT}/"
+DESKTOP_NAME="Diplomacy.desktop"
+
+install_launcher() {
+  local bin_dir="$HOME/.local/bin"
+  local apps="$HOME/.local/share/applications"
+  local icons="$HOME/.local/share/icons/hicolor/scalable/apps"
+  mkdir -p "$bin_dir" "$apps" "$icons"
+  ln -sfn "$ROOT/open-diplomacy" "$bin_dir/diplomacy"
+  ln -sfn "$ROOT/diplomacy.svg" "$icons/diplomacy.svg"
+  cat >"$apps/$DESKTOP_NAME" <<EOF
+[Desktop Entry]
+Version=1.0
+Type=Application
+Name=Diplomacy
+Comment=CACD practice
+Exec=$bin_dir/diplomacy
+TryExec=$bin_dir/diplomacy
+Icon=diplomacy
+Terminal=false
+StartupNotify=true
+Categories=Education;
+Keywords=Study;Exam;CACD;Diplomacy;
+EOF
+  chmod +x "$apps/$DESKTOP_NAME" "$ROOT/open-diplomacy"
+  if command -v update-desktop-database >/dev/null 2>&1; then
+    update-desktop-database "$apps" >/dev/null 2>&1 || true
+  fi
+  if command -v gtk-update-icon-cache >/dev/null 2>&1; then
+    gtk-update-icon-cache -f -t "$HOME/.local/share/icons/hicolor" >/dev/null 2>&1 || true
+  fi
+}
+
+focus_window() {
+  command -v hyprctl >/dev/null 2>&1 || return 1
+  local address
+  address="$(hyprctl clients -j | python3 -c '
+import json, sys
+clients = json.load(sys.stdin)
+ranked = []
+for client in clients:
+    title = client.get("title") or ""
+    klass = "{} {}".format(client.get("class") or "", client.get("initialClass") or "")
+    if title != "Diplomacy" and "8765" not in klass:
+        continue
+    ranked.append(("8765" in klass, client.get("address") or ""))
+ranked.sort(reverse=True)
+print(ranked[0][1] if ranked else "")
+')"
+  [[ -n "$address" ]] || return 1
+  hyprctl dispatch "hl.dsp.focus({ window = \"address:${address}\" })" >/dev/null
+}
+
+health() {
+  curl -sf -o /dev/null --max-time 0.4 "${URL}api/health"
+}
+
+install_launcher
+
+if focus_window; then
+  exit 0
+fi
+
+if ! health; then
+  mkdir -p "$ROOT/data"
+  cd "$ROOT"
+  nohup "$ROOT/.venv/bin/python" app.py >>"$ROOT/data/server.log" 2>&1 &
+  for _ in $(seq 1 50); do
+    health && break
+    sleep 0.1
+  done
+  health || {
+    echo "Diplomacy did not start." >&2
+    exit 1
+  }
+fi
+
+exec omarchy-launch-webapp "$URL"

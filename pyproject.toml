@@ -1,0 +1,8 @@
+[project]
+name = "diplomacy"
+version = "0.1.0"
+requires-python = ">=3.12"
+dependencies = ["vengine==0.3.0"]
+
+[tool.uv.sources]
+vengine = { path = "../V-engine", editable = true }
