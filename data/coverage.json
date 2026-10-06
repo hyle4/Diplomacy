@@ -1,0 +1,90 @@
+{
+  "years": [
+    2015,
+    2016,
+    2017,
+    2018,
+    2019,
+    2020,
+    2021,
+    2022,
+    2023,
+    2024,
+    2025,
+    2026
+  ],
+  "edition_notes": {
+    "2020": "Aplicação em 2021",
+    "2021": "Edição 2020; sem edição própria"
+  },
+  "download_assets": 242,
+  "pdf_files": 275,
+  "booklets": 108,
+  "objective_items": 3476,
+  "written_pages": 334,
+  "annulled": 115,
+  "failures": [],
+  "approval": "A revisão e a aprovação são feitas pelo usuário na interface.",
+  "by_year": {
+    "2015": {
+      "booklets": 9,
+      "pdf_files": 12,
+      "objective_items": 492
+    },
+    "2016": {
+      "booklets": 9,
+      "pdf_files": 12,
+      "objective_items": 492
+    },
+    "2017": {
+      "booklets": 10,
+      "pdf_files": 78,
+      "objective_items": 292
+    },
+    "2018": {
+      "booklets": 10,
+      "pdf_files": 22,
+      "objective_items": 292
+    },
+    "2019": {
+      "booklets": 10,
+      "pdf_files": 21,
+      "objective_items": 292
+    },
+    "2020": {
+      "booklets": 10,
+      "pdf_files": 22,
+      "objective_items": 292
+    },
+    "2021": {
+      "booklets": 0,
+      "pdf_files": 0,
+      "objective_items": 0
+    },
+    "2022": {
+      "booklets": 10,
+      "pdf_files": 22,
+      "objective_items": 292
+    },
+    "2023": {
+      "booklets": 10,
+      "pdf_files": 22,
+      "objective_items": 292
+    },
+    "2024": {
+      "booklets": 10,
+      "pdf_files": 22,
+      "objective_items": 260
+    },
+    "2025": {
+      "booklets": 10,
+      "pdf_files": 21,
+      "objective_items": 240
+    },
+    "2026": {
+      "booklets": 10,
+      "pdf_files": 21,
+      "objective_items": 240
+    }
+  }
+}

@@ -11,4 +11,4 @@ uv run python app.py
 
 Open `http://127.0.0.1:8765`.
 
-Exam files, the database, and attempt history stay in the ignored `data/` directory. A fresh clone starts with an empty practice library.
+The practice questions and their source files are included. Download caches, extraction scratch, and logs are not.

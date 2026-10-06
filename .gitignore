@@ -1,10 +1,10 @@
 .venv/
-data/
 __pycache__/
 .env
 .env.*
 *.db
 *.sqlite*
+!data/project.sqlite3
 *.pdf
 *.zip
 *.7z
@@ -20,3 +20,13 @@ __pycache__/
 *.tif
 *.tiff
 *.webp
+data/downloads/
+data/staging/
+data/text/
+data/*.log
+data/*.lock
+data/*.sqlite3-wal
+data/*.sqlite3-shm
+data/review-audit*
+data/grade-report.json
+data/download-errors.json
