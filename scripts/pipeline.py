@@ -13,6 +13,7 @@ from diplomacy.intake import fold, objective, pdf_files, read_key, written
 from vengine.documents import parse
 from vengine.exam import ingest_structured
 from vengine.models import ContentBlock, PassageRevision, SourceRef
+from vengine.project import load_project, refuses_import
 from vengine.store import Store
 
 
@@ -45,7 +46,12 @@ def main():
     assets = json.loads((ROOT / 'sources.json').read_text())['assets']
     archive, booklets, failures = [], [], []
     keys = {}
+    project = load_project(ROOT)
     for asset in assets:
+        label = f"{asset.get('title', '')} {asset.get('url', '')} {asset.get('path', '')}"
+        if refuses_import(project, label):
+            print(f'SKIP {asset["id"]}', flush=True)
+            continue
         path = ROOT / asset['path']
         receipt = json.loads(path.with_suffix(path.suffix + '.json').read_text())
         if hashlib.sha256(path.read_bytes()).hexdigest() != receipt['sha256']:
@@ -63,6 +69,9 @@ def main():
                 print(f'REVIEW key {asset["id"]}: {exc}', flush=True)
     for asset in assets:
         if asset['role'] != 'exam':
+            continue
+        label = f"{asset.get('title', '')} {asset.get('url', '')} {asset.get('path', '')}"
+        if refuses_import(project, label):
             continue
         title_lower = fold(asset['title'])
         if any(t in title_lower for t in ('adaptada', 'especial')):

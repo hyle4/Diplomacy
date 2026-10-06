@@ -51,7 +51,7 @@ dependencies = [
 ]
 
 [package.metadata]
-requires-dist = [{ name = "vengine", git = "https://github.com/hyle4/V-engine?rev=d06ea18253d0822bc91ae62b13b2165f16080e06" }]
+requires-dist = [{ name = "vengine", git = "https://github.com/hyle4/V-engine?rev=e48244a454016e92e9aeacfa04d289a9496078a7" }]
 
 [[package]]
 name = "fastapi"
@@ -361,7 +361,7 @@ wheels = [
 [[package]]
 name = "vengine"
 version = "0.3.0"
-source = { git = "https://github.com/hyle4/V-engine?rev=d06ea18253d0822bc91ae62b13b2165f16080e06#d06ea18253d0822bc91ae62b13b2165f16080e06" }
+source = { git = "https://github.com/hyle4/V-engine?rev=e48244a454016e92e9aeacfa04d289a9496078a7#e48244a454016e92e9aeacfa04d289a9496078a7" }
 dependencies = [
     { name = "fastapi" },
     { name = "fsrs" },

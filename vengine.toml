@@ -11,3 +11,4 @@ font = ""
 text_size = "sm"
 reading_width = "standard"
 library_filters = ["Objetiva", "Manhã", "Tarde"]
+blocked_imports = ["leetcode", "leet code", "blind 75", "blind75", "auditor"]
