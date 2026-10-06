@@ -5,4 +5,4 @@ requires-python = ">=3.12"
 dependencies = ["vengine==0.3.0"]
 
 [tool.uv.sources]
-vengine = { path = "../V-engine", editable = true }
+vengine = { git = "https://github.com/hyle4/V-engine", rev = "bdad9f165ea57544112db94a7132b1f0e1365dd4" }

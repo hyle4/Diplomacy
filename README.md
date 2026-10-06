@@ -1,7 +1,14 @@
-# diplomacy
+# Diplomacy
 
-This is an independent V-engine project. Configuration and trusted project plugins live here; source files, staging transcripts, SQLite, and attempts live in ignored `data/`.
+CACD practice app built on [V-engine](https://github.com/hyle4/V-engine). Python 3.12 and [uv](https://docs.astral.sh/uv/) are required.
 
-Give your coding assistant [AGENTS.md](AGENTS.md) and your source files. The assistant configures the subject, imports originals or study sources, checks the review queue, and reports uncertain items. You approve questions in the browser.
+```bash
+git clone https://github.com/hyle4/Diplomacy
+cd Diplomacy
+uv sync
+uv run python app.py
+```
 
-After the V-engine package is published, run `uv sync` and `uv run python app.py`. Open `http://127.0.0.1:8765`. For a local engine checkout before publication, run `uv venv`, `uv pip install -e /path/to/V-engine`, then `uv run --no-sync python app.py`. Do not commit a local absolute dependency path.
+Open `http://127.0.0.1:8765`.
+
+Exam files, the database, and attempt history stay in the ignored `data/` directory. A fresh clone starts with an empty practice library.

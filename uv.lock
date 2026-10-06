@@ -51,7 +51,7 @@ dependencies = [
 ]
 
 [package.metadata]
-requires-dist = [{ name = "vengine", editable = "../V-engine" }]
+requires-dist = [{ name = "vengine", git = "https://github.com/hyle4/V-engine?rev=bdad9f165ea57544112db94a7132b1f0e1365dd4" }]
 
 [[package]]
 name = "fastapi"
@@ -361,7 +361,7 @@ wheels = [
 [[package]]
 name = "vengine"
 version = "0.3.0"
-source = { editable = "../V-engine" }
+source = { git = "https://github.com/hyle4/V-engine?rev=bdad9f165ea57544112db94a7132b1f0e1365dd4#bdad9f165ea57544112db94a7132b1f0e1365dd4" }
 dependencies = [
     { name = "fastapi" },
     { name = "fsrs" },
@@ -371,21 +371,3 @@ dependencies = [
     { name = "python-multipart" },
     { name = "uvicorn" },
 ]
-
-[package.metadata]
-requires-dist = [
-    { name = "docling", marker = "extra == 'documents'", specifier = ">=2,<4" },
-    { name = "fastapi", specifier = ">=0.115,<1" },
-    { name = "fsrs", specifier = ">=6,<7" },
-    { name = "google-genai", marker = "extra == 'ai'", specifier = ">=1,<2" },
-    { name = "httpx", marker = "extra == 'dev'", specifier = ">=0.27,<1" },
-    { name = "pillow", specifier = ">=11,<13" },
-    { name = "py7zr", marker = "extra == 'documents'", specifier = ">=0.22,<2" },
-    { name = "pydantic", specifier = ">=2.10,<3" },
-    { name = "pypdfium2", specifier = ">=4.30,<6" },
-    { name = "pytest", marker = "extra == 'dev'", specifier = ">=8,<10" },
-    { name = "python-multipart", specifier = ">=0.0.20,<1" },
-    { name = "ruff", marker = "extra == 'dev'", specifier = ">=0.11,<1" },
-    { name = "uvicorn", specifier = ">=0.34,<1" },
-]
-provides-extras = ["documents", "ai", "dev"]
